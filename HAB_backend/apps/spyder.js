@@ -68,6 +68,7 @@ Date.prototype.Format = function (fmt) { // author: meizz
         const upName = $ele('.up-name').text().trim()
         const upUrl = 'https:' + $ele('.detail').find('a').attr('href').trim()
         const rank = $ele('.rank-item').attr('data-rank')
+        const time = (new Date()).Format("yyyyMMdd hhmmss")
         let video = {}
         getVideoContent(url).then(data => {
           video = Object.assign(data, { title, url, 'up': { upName, upUrl }, rank })

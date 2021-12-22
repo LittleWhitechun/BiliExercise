@@ -16,16 +16,26 @@ Date.prototype.Format = function (fmt) { // author: meizz
   return fmt;
 }
 
+// 爬虫
+// const spyder = require('./apps/spyder')
+// const time = (new Date()).Format("yyyyMMdd hhmmss")
+// const filePath = `./public/json/${time}.json`
+// spyder.getRankVideos(filePath)
+
 //  启动服务
 const express = require('express')
-const bodyParse = require('body-parser')
-const spyder = require('./apps/spyder')
 const app = express()
+const utils = require('./public/js/utils')
+const fs = require('fs')
+app.get('/video/all',(req,res) => {
+  const jsonPath = './public/json/'
+  const newJson = utils.getFile(jsonPath).pop()
+  res.end(newJson)
+})
+app.listen(3000,() => {
+  console.log('listening 3000~')
+})
 
-// 爬虫
-const time = (new Date()).Format("yyyyMMdd hhmmss")
-const filePath = `../public/json/${time}.json`
-spyder.getRankVideos(filePath)
 
 
 

@@ -13,6 +13,14 @@ const mkdir = (filePath) => {
     fs.writeFileSync(filePath, '')
 }
 
+exports.getFile = (filePath) => {
+    const files = fs.readdirSync(filePath)
+    const filesContent = files.map(fileName => {
+        const data = fs.readFileSync(filePath + fileName,'utf8')
+        return data
+    })
+    return filesContent
+}
 exports.writeFile = (filePath,jsonData) => {
     if (!fs.existsSync(filePath)) {
         mkdir(filePath);
