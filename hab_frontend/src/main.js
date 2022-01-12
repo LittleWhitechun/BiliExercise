@@ -6,6 +6,7 @@ import dataV from '@jiaminghi/data-view'
 
 import App from './App.vue'
 
+require('./mock.js')
 Vue.use(ElementUI)
 Vue.use(dataV)
 

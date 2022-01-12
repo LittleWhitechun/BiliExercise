@@ -34,7 +34,7 @@
             </div>
             <div class="chart-container">
               <dv-border-box-8>
-                <dv-conical-column-chart :config="conicalConfig"
+                <dv-conical-column-chart class="conical-chart" :config="conicalConfig"
               /></dv-border-box-8>
             </div>
           </el-col>
@@ -126,6 +126,7 @@ export default {
       scrollConfig: {
         header: ["Video Name", "Time", "Views"],
         carousel: "page",
+        rowNum:8,
         data: [
           [
             "【python】4hours beginner tutorial",
@@ -153,7 +154,7 @@ export default {
           },
           {
             name: "Gaming",
-            value: 120,
+            value: 102,
           },
           {
             name: "Fashion",
@@ -167,16 +168,8 @@ export default {
             name: "Sports",
             value: 80,
           },
-          {
-            name: "Car",
-            value: 35,
-          },
-          {
-            name: "Beauty",
-            value: 15,
-          },
         ],
-        img:[]
+        img:[require('../assets/cat1.png'),require('../assets/cat2.png'),require('../assets/cat3.png'),require('../assets/cat4.png'),require('../assets/cat5.png')]
       },
     };
   },
@@ -248,6 +241,10 @@ export default {
   height: 85%;
   width: 33%;
   display: inline-block;
+}
+.conical-chart{
+  height: 85% !important;
+  margin: 5% 0;
 }
 .ring-chart .active-ring-info {
   transform: scale(0.65);

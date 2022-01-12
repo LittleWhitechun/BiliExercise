@@ -28,13 +28,39 @@ export default {
           //   heightTexture: "../assets/globel.webp", //地球的高度纹理
           shading: "lambert", //地球中三维图形的着色效果
           light: {
-            ambient: {
-              intensity: 0.8, //环境光源强度
-            }, //环境光
             main: {
-              intensity: 0.8, //光源强度
-            }, //主光源
-          }, //光照设置
+              main: {
+                color: "red", // 光照颜色
+                intensity: 5.2, // 光照强度
+                shadowQuality: "ultra", //阴影亮度
+                shadow: true, // 是否显示阴影
+                alpha: 40,
+                beta: -30,
+              },
+              ambient: {
+                intensity: 4.6,
+              },
+            },
+          },
+          viewControl: {
+            alpha: 30,
+            beta: 160,
+            //			            targetCoord: [116.46, 39.92],
+            autoRotate: true,
+            autoRotateAfterStill: 10,
+            distance: 240,
+            autoRotateSpeed: 4,
+          },
+          postEffect: {
+            //为画面添加高光，景深，环境光遮蔽（SSAO），调色等效果
+            enable: true, //是否开启
+            SSAO: {
+              //环境光遮蔽
+              radius: 0.5, //环境光遮蔽的采样半径。半径越大效果越自然
+              intensity: 0.5, //环境光遮蔽的强度
+              enable: true,
+            },
+          },
           atmosphere: {
             show: true,
             offset: 0.5,

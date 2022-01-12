@@ -8,19 +8,19 @@
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     // HelloWorld
-  }
-}
+  },
+};
 </script>
 
 <style>
-body{
+body {
   margin: 0;
   height: 100%;
 }
-#app{
+#app {
   margin: 0;
   width: 100%;
   height: 100%;
