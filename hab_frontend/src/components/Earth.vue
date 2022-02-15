@@ -31,7 +31,7 @@ export default {
             main: {
               main: {
                 color: "red", // 光照颜色
-                intensity: 5.2, // 光照强度
+                intensity: 1.2, // 光照强度
                 shadowQuality: "ultra", //阴影亮度
                 shadow: true, // 是否显示阴影
                 alpha: 40,
@@ -63,10 +63,10 @@ export default {
           },
           atmosphere: {
             show: true,
-            offset: 0.5,
+            offset: 0.1,
             color: "rgba(255,255,255,0.2)",
-            glowPower: 3,
-            innerGlowPower: 1.5,
+            glowPower: 1,
+            innerGlowPower: 2.5,
           },
         },
         series: {
