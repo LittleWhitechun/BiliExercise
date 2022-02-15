@@ -385,7 +385,7 @@ export default {
         return {
           id: getUUID(),
           content: `我是弹幕机器人${i}号`,
-          line: 0,
+          line: i + 1,
           time: i,
         };
       }),
@@ -423,21 +423,7 @@ export default {
       this.curVideo.videoUrl =
         this.videoUrl = require("../assets/video/never.mp4");
       console.log(this.curVideo);
-      // this.danmuIntervalId = setInterval(this.showNextDanmu, 700);
     },
-    // showNextDanmu() {
-    //   if(this.videoState == 'paused'){
-    //     return;
-    //   }
-    //   if (!this.waitingDanmus.length) {
-    //     return;
-    //   }
-    //   console.log('show next danmu')
-    //   this.currentLine = (this.currentLine % this.lines) + 1;
-    //   const currentDanmu = this.waitingDanmus.shift();
-    //   currentDanmu.line = this.currentLine;
-    //   this.showingDanmus.push(currentDanmu);
-    // },
     updateDanmu() {
       const curTime = this.$refs.video.currentTime;
       let danmuToAppend = this.waitingDanmus.filter((i) => {
@@ -460,7 +446,7 @@ export default {
       const newDanmu = {
         id: getUUID(),
         content: this.newDanmu,
-        line: 0,
+        line: Math.floor(Math.random()*this.lines) + 1,
         time: this.$refs.video.currentTime + 0.1,
       };
       this.waitingDanmus.push(newDanmu);
@@ -477,9 +463,6 @@ export default {
       this.videoState = "actived";
     },
     updateVideoTime() {
-      // const curTime = this.$refs.video.currentTime;
-      // const duration = this.$refs.video.duration;
-      // console.log(`curtime:${curTime},duration:${duration}`);
       this.updateDanmu();
     },
   },
