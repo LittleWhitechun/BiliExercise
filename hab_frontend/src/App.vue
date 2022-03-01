@@ -25,4 +25,18 @@ body {
   width: 100%;
   height: 100%;
 }
+.my-split-line {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #999;
+  margin: 1% 2.75%;
+}
+.my-split-line::before,
+.my-split-line::after {
+  content: "";
+  flex: 1;
+  height: 0.006em;
+  background: #ccc;
+}
 </style>

@@ -323,7 +323,7 @@ const getUUID = () => Math.random() + Math.random();
 export default {
   name: "BiliPage",
   mounted() {
-    axios.get("/mock/video/8").then((res) => {
+    axios.get("/mock/video/bili/8").then((res) => {
       this.videos = res.data.videos;
       window.setTimeout(() => {
         this.loading = false;

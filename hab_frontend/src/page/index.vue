@@ -1,7 +1,8 @@
 <template>
   <div class="index-bg">
     <div class="router-box">
-      <div class="router-title"><router-link to="bilipage">视频网站</router-link></div>
+      <div class="router-title"><router-link to="bilipage">视频网站（PC）</router-link></div>
+      <div class="router-title"><router-link to="biliapp">视频网站（移动）</router-link></div>
       <div class="router-title" ><router-link to="bigscreen">大屏</router-link></div>
     </div>
   </div>
