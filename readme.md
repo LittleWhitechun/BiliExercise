@@ -23,12 +23,12 @@ PC端视频网站
 >>>>>>> 07e22ae99408f0c08bcd459ec1ff8e8d16add7c7
 
 #### 预览
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE1.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE2.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE3.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE3-1.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE3-2.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE4.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE5.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE6.png)
-![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/BE7.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE1.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE2.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE3.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE3-1.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE3-2.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE4.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE5.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE6.png)
+![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE7.png)
