@@ -1,11 +1,16 @@
 <template>
-  <div id="globe" style="width: 50vw; height: 95vh"></div>
+<!-- style="width: 50vw; height: 95vh" -->
+  <ScreenAdapter :width="'1000'" :height="'1000'">
+    <div id="globe" style="width:100%;height:100%"></div>
+  </ScreenAdapter>
 </template>
 <script>
 // import echarts from "echarts"
 // import * from "echarts-gl"
+import ScreenAdapter from "./ScreenAdapter.vue";
 export default {
   name: "Earth",
+  components:{ScreenAdapter},
   data() {
     return {
       domName: 0,

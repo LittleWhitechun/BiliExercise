@@ -294,7 +294,7 @@
         ><el-button @click="sendDamu">发送</el-button>
       </div>
       <div style="display: flex; align-items: center; margin: 15px 5px">
-        <img src="../assets/comment.png" width="50px" height="50px" />
+        <img src="../assets/comment.png" width="25px" height="25px" />
         <span style="color: black; font-weight: 400; font-size: 20px"
           >&nbsp;评论</span
         >

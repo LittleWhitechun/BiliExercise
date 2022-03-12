@@ -1,8 +1,23 @@
 <template>
   <div style="overflow-x: hidden">
-    <div class="video">
-      <img :src="curVideo.img" />
+    <div class="back-btn" @click="backPage">
+      <van-icon name="revoke" />
     </div>
+    <div class="video">
+      <img :src="curVideo.img" v-if="!isPlaying" @click="isPlaying = true" />
+      <DanmuVideo v-if="isPlaying" />
+      <!-- <div>
+        <video
+          class="video-video"
+          :src="videoUrl"
+          controls
+          v-if="isPlaying"
+          autoplay
+        ></video>
+      </div> -->
+      <!-- <van-icon name="play-circle-o" class="play-btn" v-if="!isPlaying" /> -->
+    </div>
+
     <div class="video-info">
       <van-tabs v-model="activeTab">
         <van-tab title="简介">
@@ -55,22 +70,37 @@
 <script>
 import axios from "axios";
 import VideoCardRow from "../../components/VideoCardRow.vue";
+import DanmuVideo from "../../components/DanmuVideo.vue";
 export default {
   name: "BiliAppVideo",
-  components: { VideoCardRow },
+  components: { VideoCardRow, DanmuVideo },
   mounted() {
-    this.curVideo = this.$store.state.curVideo;
+    // this.curVideo = this.$store.state.curVideo;
     console.log(this.$store.state.curVideo);
     axios.get("/mock/relation").then((res) => {
       this.relationVideos = res.data.videos;
     });
+    console.log("this.$route.path:", this.$route.path);
   },
   data() {
     return {
-      curVideo: {},
+      // curVideo: {},
       activeTab: 0,
       relationVideos: [],
+      videoUrl: require("../../assets/video/never.mp4"),
+      isPlaying: false,
     };
+  },
+  computed: {
+    curVideo() {
+      return this.$store.state.curVideo;
+    },
+  },
+  methods: {
+    backPage() {
+      this.$router.back();
+      console.log("back");
+    },
   },
 };
 </script>
@@ -82,19 +112,19 @@ export default {
   display: flex;
 }
 .up img {
-  width: 2em;
-  height: 2em;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
 }
 .up-info {
-  margin-left: 1em;
+  margin-left: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  font-size: 0.2em;
+  font-size: 0.2rem;
 }
 .van-tab__pane {
-  margin: 0.5em 0.2em;
+  margin: 0.5rem 0.2rem;
 }
 .operations {
   display: flex;
@@ -106,9 +136,25 @@ export default {
   color: rgb(146, 146, 146);
 }
 .operation-item .van-icon {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 .operation-item-text {
-  font-size: 0.7em;
+  font-size: 0.7rem;
+}
+.video-video {
+  width: 100%;
+}
+.play-btn {
+  /* display: absolute !important; */
+  top: 30%;
+  left: calc(50% - 1.75rem);
+  font-size: 3.5rem;
+}
+.back-btn {
+  position: fixed;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  z-index: 999;
 }
 </style>

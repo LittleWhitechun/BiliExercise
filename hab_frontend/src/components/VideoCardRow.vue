@@ -1,19 +1,19 @@
 <template>
   <div class="video">
-    <div class="video-img">
-      <img :src="video.img"/>
+    <div class="video-img" @click="goToVideo(video)">
+      <img :src="videoData.img" />
     </div>
     <div class="video-info">
       <div class="video-info-title">
-        {{ video.title }}
+        {{ videoData.title }}
       </div>
       <div class="video-info-label">
         <span>
-            {{ video.label }}
+          {{ videoData.label }}
         </span>
       </div>
       <div class="video-info-upname">
-        <van-icon name="manager-o" />{{ video.upName }}
+        <van-icon name="manager-o" />{{ videoData.upName }}
       </div>
     </div>
   </div>
@@ -24,6 +24,21 @@ export default {
   props: {
     video: {
       type: Object,
+    },
+  },
+  data() {
+    return {
+      videoData: this.video,
+    };
+  },
+  methods: {
+    goToVideo(video) {
+      // console.log(this.$route.path);
+      if (this.$route.path != "/biliapp/video") {
+        // 同一个页面更新
+        this.$router.push({ path: "/biliapp/video" });
+      }
+      this.$store.commit("updateCurVideo", video);
     },
   },
 };
@@ -47,18 +62,18 @@ export default {
   margin-left: 1%;
   display: flex;
   flex-flow: column;
-  justify-content: space-between
+  justify-content: space-between;
 }
-.video-info-title{
-    font-size:1em
+.video-info-title {
+  font-size: 1em;
 }
-.video-info-label span{
-    color: #e1622f;
-    padding: 0.3em;
-    border-color: #e1622f;
-    background-color: #f1ccb8;
+.video-info-label span {
+  color: #e1622f;
+  padding: 0.3em;
+  border-color: #e1622f;
+  background-color: #f1ccb8;
 }
-.video-info-upname{
-    color: rgba(0,0,0,0.7);
+.video-info-upname {
+  color: rgba(0, 0, 0, 0.7);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="bigscreen">
+  <div id="bigscreen" >
     <el-container>
       <el-header>
         <dv-decoration-11 class="header-title"
@@ -59,7 +59,7 @@
 // import * as echarts from "echarts";
 import Earth from "../components/Earth.vue";
 export default {
-  name: "App",
+  name: "BigScreen",
   components: { Earth },
   component: Earth,
   data() {
@@ -211,6 +211,8 @@ export default {
           require("../assets/cat5.png"),
         ],
       },
+      width: "1800",
+      height: "1000",
     };
   },
   methods: {
@@ -268,6 +270,12 @@ export default {
 }
 #bigscreen {
   background-image: url("../assets/background.jpg");
+  /* transform: scale(0.5); */
+  /* position: absolute;
+  left: 50%;
+  height: 50%;
+  transition: 0.3s;
+  transform-origin: 0 0; */
 }
 
 .dv-border-box-11 {

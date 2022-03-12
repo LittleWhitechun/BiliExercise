@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+    <keep-alive include="BiliApp">
     <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
