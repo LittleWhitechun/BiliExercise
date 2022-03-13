@@ -118,6 +118,9 @@ export default {
       console.log(this.curVideo);
     },
     updateDanmu() {
+      if(!this.$refs.video){
+        return
+      }
       const curTime = this.$refs.video.currentTime;
       // 如果用户拖动进度条，则清空弹幕
       if (curTime - this.prePlayTime >= 2 || this.prePlayTime > curTime) {

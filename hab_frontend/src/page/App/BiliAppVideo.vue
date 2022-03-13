@@ -29,35 +29,43 @@
             </div>
           </div>
           <div class="operations">
-            <div class="operation-item">
-              <van-icon name="good-job" />
+            <div :class="`operation-item ${zaned ? 'ed' : ''}`">
+              <van-icon name="good-job" @click="zaned = !zaned" />
               <div class="operation-item-text">
                 {{ "1000+" }}
               </div>
             </div>
-            <div class="operation-item">
-              <van-icon name="invitation" />
+            <div :class="`operation-item ${showGift ? 'ed' : ''}`">
+              <van-icon name="invitation" @click="showGift = !showGift" />
               <div class="operation-item-text">
                 {{ "打赏" }}
               </div>
             </div>
-            <div class="operation-item">
-              <van-icon name="shop-collect" />
+            <VideoGift @cancelGiftTable="cancelGiftTable" :show="showGift" />
+            <div :class="`operation-item ${flowered ? 'ed' : ''}`">
+              <van-icon name="shop-collect" @click="sendFlower" />
               <div class="operation-item-text">
                 {{ "送花" }}
               </div>
             </div>
             <div class="operation-item">
-              <van-icon name="add-square" />
+              <van-icon name="share" @click="showShare = true" />
               <div class="operation-item-text">
-                {{ "添加" }}
+                {{ "分享" }}
               </div>
             </div>
+            <van-share-sheet
+              v-model="showShare"
+              title="立即分享给好友"
+              :options="options"
+            />
           </div>
           <div class="my-split-line"></div>
           <div class="relation-videos">
             <div v-for="(video, index) in relationVideos" :key="index">
-              <VideoCardRow :video="video"></VideoCardRow>
+              <keep-alive>
+                <VideoCardRow :video="video"></VideoCardRow>
+              </keep-alive>
               <div class="my-split-line"></div>
             </div>
           </div>
@@ -71,16 +79,15 @@
 import axios from "axios";
 import VideoCardRow from "../../components/VideoCardRow.vue";
 import DanmuVideo from "../../components/DanmuVideo.vue";
+import VideoGift from "../../components/VideoGift.vue";
 export default {
   name: "BiliAppVideo",
-  components: { VideoCardRow, DanmuVideo },
+  components: { VideoCardRow, DanmuVideo, VideoGift },
   mounted() {
     // this.curVideo = this.$store.state.curVideo;
-    console.log(this.$store.state.curVideo);
     axios.get("/mock/relation").then((res) => {
       this.relationVideos = res.data.videos;
     });
-    console.log("this.$route.path:", this.$route.path);
   },
   data() {
     return {
@@ -89,6 +96,17 @@ export default {
       relationVideos: [],
       videoUrl: require("../../assets/video/never.mp4"),
       isPlaying: false,
+      zaned: false,
+      showShare: false,
+      options: [
+        { name: "微信", icon: "wechat" },
+        { name: "微博", icon: "weibo" },
+        { name: "复制链接", icon: "link" },
+        { name: "分享海报", icon: "poster" },
+        { name: "二维码", icon: "qrcode" },
+      ],
+      showGift: false,
+      flowered: false,
     };
   },
   computed: {
@@ -96,10 +114,24 @@ export default {
       return this.$store.state.curVideo;
     },
   },
+  watch: {
+    curVideo: () => (this.isPlaying = false),
+    showShare: () => console.log("show share"),
+  },
   methods: {
     backPage() {
       this.$router.back();
-      console.log("back");
+    },
+    cancelGiftTable(bool) {
+      this.showGift = bool;
+    },
+    sendFlower() {
+      if (!this.flowered) {
+        this.$toast({ message: "谢谢你的花", icon: "flower-o" });
+        this.flowered = true
+      }else{
+        this.flowered = false
+      }
     },
   },
 };
@@ -134,6 +166,27 @@ export default {
   width: 25%;
   text-align: center;
   color: rgb(146, 146, 146);
+}
+.operation-item:active {
+  color: rgb(235, 145, 145);
+}
+.operation-item.ed {
+  color: rgb(233, 111, 111);
+  animation: zan 0.25s ease-in-out;
+}
+@keyframes zan {
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  75% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 .operation-item .van-icon {
   font-size: 1.5rem;

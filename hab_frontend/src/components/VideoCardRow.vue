@@ -33,9 +33,10 @@ export default {
   },
   methods: {
     goToVideo(video) {
-      // console.log(this.$route.path);
+      console.log('go to video');
       if (this.$route.path != "/biliapp/video") {
         // 同一个页面更新
+        console.log('same page')
         this.$router.push({ path: "/biliapp/video" });
       }
       this.$store.commit("updateCurVideo", video);

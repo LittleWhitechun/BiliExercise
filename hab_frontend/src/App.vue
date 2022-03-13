@@ -38,7 +38,7 @@ body {
 .my-split-line::after {
   content: "";
   flex: 1;
-  height: 0.006em;
+  height: 0.006rem;
   background: #ccc;
 }
 </style>

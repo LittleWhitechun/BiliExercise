@@ -24,9 +24,11 @@
       </van-tabs>
     </van-sticky>
     <div class="app-content">
-      <Tuijian v-if="headerActive == 0" />
-      <Hot v-if="headerActive == 1" />
-      <Zhuifan v-if="headerActive == 2" />
+      <keep-alive>
+        <Tuijian v-if="headerActive == 0" />
+        <Hot v-if="headerActive == 1" />
+        <Zhuifan v-if="headerActive == 2" />
+      </keep-alive>
     </div>
     <van-tabbar v-model="footerActive">
       <van-tabbar-item icon="home-o">首页</van-tabbar-item>
@@ -76,7 +78,7 @@ export default {
   letter-spacing: 0.035rem;
   overflow: visible;
 }
-.app-content{
+.app-content {
   margin-top: 1rem;
 }
 </style>

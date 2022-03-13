@@ -6,7 +6,8 @@ const store = new Vuex.Store({
     // 存储状态值
     state: {
         videos:[],
-        curVideo:{title:'123'}
+        curVideo:{title:'123'},
+        showGiftTable:false
     },
 
     mutations: {
@@ -15,6 +16,9 @@ const store = new Vuex.Store({
         },
         updateCurVideo(state,video){
             state.curVideo = video
+        },
+        showGiftTable(state,bool){
+            state.showGiftTable = bool
         }
     },
 
