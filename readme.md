@@ -16,11 +16,8 @@ Nodejs爬虫爬取视频数据
 
 PC端视频网站
 
-<<<<<<< HEAD
 移动端视频网站
-=======
-移动端视频网站
->>>>>>> 07e22ae99408f0c08bcd459ec1ff8e8d16add7c7
+
 
 #### 预览
 ![image](https://github.com/LittleWhitechun/SDU-Weibo/blob/main/%E9%A2%84%E8%A7%88/BE1.png)
