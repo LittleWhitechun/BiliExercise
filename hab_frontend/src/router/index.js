@@ -9,6 +9,9 @@ import BiliApp from '../page/App/BiliApp'
 import BiliAppVideo from '../page/App/BiliAppVideo'
 import index from '../page/index'
 import Gift from '../components/VideoGift'
+import Register from '../page/command/Register'
+import Examine from '../page/command/Examine'
+import Query from '../page/command/Query'
 Vue.use(VueRouter)
 
 const VueRouterPush = VueRouter.prototype.push
@@ -26,6 +29,10 @@ export default new VueRouter({
     { path: '/bilipage', component: BiliPage },
     { path: '/biliapp', component: BiliApp, },
     { path: '/biliapp/video', component: BiliAppVideo },
-    { path: '/biliapp/gift', component: Gift }
+    { path: '/biliapp/gift', component: Gift },
+    { path: '/command/Register', component: Register },
+    { path: '/command/Examine', component: Examine },
+    { path: '/command/Query', component: Query },
+    {path:'/virtualScroller',component:() => import('../page/VirtualScroll')}
   ]
 })
